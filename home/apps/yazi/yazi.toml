@@ -1,0 +1,18 @@
+[manager]
+show_hidden = true
+
+[plugin]
+prepend_previewers = [
+  { "name" = "*.md", run = "glow" },
+  # { "name" = "*.(py|java|go|toml|conf|json|csv)", run = "bat" },
+  { "name" = "*.toml", run = "bat" },
+  { "name" = "*.go", run = "bat" },
+  { "name" = "*.sh", run = "bat" },
+  { "name" = "*.py", run = "bat" },
+  { "name" = "*.json", run = "bat" },
+  { "name" = "*.java", run = "bat" },
+  { "name" = "*.conf", run = "bat" },
+  { "name" = "*.csv", run = "bat" },
+  { "name" = "*.yml", run = "bat" },
+  { "name" = "*.conf", run = "bat" },
+]

@@ -1,0 +1,98 @@
+title: "NixOS Configuration"
+version: "1.0.0"
+
+settings:
+  default_profile: "nixos-home"
+  username: "nightwatcher"
+  hostname: "nexus"
+  theme: "tokyo-night-dark"
+  variables:
+    DOTFILES_DIR: "$HOME/.dotfiles"
+    XDG_CONFIG_HOME: "$HOME/.config"
+
+profiles:
+  nixos-home:
+    name: "Home Desktop"
+    description: "Full desktop environment with development tools"
+    system:
+      boot:
+        loader: "systemd-boot"
+        timeout: 5
+        default_os: "NixOS"
+      network:
+        firewall: true
+        wireless: true
+        tailscale: true
+        dns: ["1.1.1.1", "8.8.8.8"]
+      services:
+        - "pipewire"
+        - "blueman"
+        - "tailscale"
+        - "gnome-keyring"
+      packages:
+        - "git"
+        - "curl"
+        - "wget"
+        - "ripgrep"
+        - "fd"
+    user:
+      shell: "zsh"
+      home_manager: true
+      packages:
+        - "neovim"
+        - "tmux"
+        - "kitty"
+        - "firefox"
+    hardware:
+      gpu: "nvidia"
+      audio: "pipewire"
+      bluetooth: true
+      peripherals:
+        - "logitech"
+        - "razer"
+    environment:
+      desktop: "hyprland"
+      display_manager: "gdm"
+      wayland_apps:
+        - "waybar"
+        - "rofi"
+        - "swaync"
+      x11_apps:
+        - "polybar"
+        - "picom"
+
+  wsl:
+    name: "WSL Development"
+    description: "Minimal WSL setup for development"
+    system:
+      boot:
+        loader: "none"
+        timeout: 0
+        default_os: "NixOS"
+      network:
+        firewall: false
+        wireless: false
+        tailscale: true
+        dns: ["1.1.1.1"]
+      services:
+        - "tailscale"
+      packages:
+        - "git"
+        - "curl"
+        - "wget"
+    user:
+      shell: "zsh"
+      home_manager: true
+      packages:
+        - "neovim"
+        - "tmux"
+    hardware:
+      gpu: "none"
+      audio: "none"
+      bluetooth: false
+      peripherals: []
+    environment:
+      desktop: "none"
+      display_manager: "none"
+      wayland_apps: []
+      x11_apps: []
