@@ -1,0 +1,65 @@
+{
+  "hostname": "nexus",
+  "description": "Full desktop environment with development tools",
+  "modules": {
+    "boot": {
+      "loader": "grub",
+      "timeout": 15,
+      "default_os": "NixOS"
+    },
+    "network": {
+      "firewall": true,
+      "wireless": true,
+      "tailscale": true,
+      "dns": [
+        "1.1.1.1",
+        "8.8.8.8"
+      ]
+    },
+    "services": [
+      "pipewire",
+      "blueman",
+      "tailscale",
+      "gnome-keyring"
+    ],
+    "packages": [
+      "git",
+      "curl",
+      "wget",
+      "ripgrep",
+      "fd"
+    ]
+  },
+  "home": {
+    "shell": "zsh",
+    "home_manager": true,
+    "packages": [
+      "neovim",
+      "tmux",
+      "kitty",
+      "firefox"
+    ]
+  },
+  "hardware": {
+    "gpu": "nvidia",
+    "audio": "pipewire",
+    "bluetooth": true,
+    "peripherals": [
+      "logitech",
+      "razer"
+    ]
+  },
+  "environment": {
+    "desktop": "hyprland",
+    "display_manager": "gdm",
+    "wayland_apps": [
+      "waybar",
+      "rofi",
+      "swaync"
+    ],
+    "x11_apps": [
+      "polybar",
+      "picom"
+    ]
+  }
+}

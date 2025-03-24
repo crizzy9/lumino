@@ -9,8 +9,10 @@
 
     shellAliases = {
       ".." = "cd ..";
-      pbcopy = "xclip -selection clipboard";
-      pbpaste = "xclip -selection clipboard -o";
+      # pbcopy = "xclip -selection clipboard";
+      # pbpaste = "xclip -selection clipboard -o";
+      # pbcopy = "wl-copy";
+      # pbpaste = "wl-paste";
       la = "eza -la --icons auto --group-directories-first";
       lsag = "eza -lah --icons auto --git --group-directories-first";
       lsat = "eza -lah --icons auto --git --tree -L 2 --git-ignore";

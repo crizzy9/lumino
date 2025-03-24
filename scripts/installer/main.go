@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/crizzy9/dotfiles/internal/installer"
-	"github.com/crizzy9/dotfiles/internal/ui"
+	"github.com/crizzy9/LuminoOS/internal/ui"
+	"github.com/crizzy9/LuminoOS/lib/installer"
 )
 
 func main() {
