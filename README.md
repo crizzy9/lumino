@@ -14,13 +14,33 @@ This repository contains a modern NixOS installer built using Bubble Tea, a Go l
 
 ## Directory Structure
 
-```
+```tree
 .
-├── cmd/                # Main application entry point
-│   └── frost/          # Installer application
-├── internal/           # Internal packages
-│   ├── installer/      # Configuration handling
-│   └── ui/             # User interface components
+
+├── assets/
+├── hosts/
+│   ├── darwin/
+│   ├── nixos/
+│   └── others/
+├── modules/
+│   ├── apps/
+│   ├── hardware/
+│   ├── ai/
+│   ├── lab/
+│   ├── core/
+│   ├── desktop/
+│   ├── shell/
+│   ├── terminal/
+│   ├── tools/
+│   ├── styles/
+│   └── services/
+├── frost/
+│   ├── main.go
+│   ├── config.go
+│   └── ui.go
+├── flake.nix
+├── sysConfigs.nix
+├── setup.sh            # Setup Script
 ├── config.yaml         # Global settings and profiles
 ├── go.mod              # Go module file
 └── README.md           # Project documentation
@@ -29,12 +49,14 @@ This repository contains a modern NixOS installer built using Bubble Tea, a Go l
 ## Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/crizzy9/.dotfiles.git
    cd .dotfiles
    ```
 
 2. **Install Go dependencies**:
+
    ```bash
    go mod tidy
    ```
@@ -84,4 +106,3 @@ This project is licensed under the AGPL License. See the LICENSE file for more d
 
 - [Bubble Tea](https://github.com/charmbracelet/bubbletea) for the terminal UI framework.
 - [Lipgloss](https://github.com/charmbracelet/lipgloss) for styling terminal applications.
-
