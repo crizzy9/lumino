@@ -15,6 +15,10 @@ in
         "libvirtd"
         "scanner"
         "lp"
+        "users"
+        "video"
+        "podman"
+        "input"
       ];
       shell = pkgs.${shell};
       ignoreShellProgramCheck = true;

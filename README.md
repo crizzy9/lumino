@@ -2,6 +2,8 @@
 
 ## Overview
 
+Its a Homelab Platforming OS
+
 This repository contains a modern NixOS installer built using Bubble Tea, a Go library for creating terminal applications. The installer reads a global settings file, detects system types, prompts for profile selection, generates necessary configurations, and handles NixOS installation. It features a user-friendly interface created with Bubble Tea and Lipgloss.
 
 ## Features
@@ -12,6 +14,13 @@ This repository contains a modern NixOS installer built using Bubble Tea, a Go l
 - **Modern TUI**: A visually appealing terminal user interface using Bubble Tea and Lipgloss.
 - **Cross-Platform**: Designed to work across various hardware configurations, including Raspberry Pi, WSL, and macOS.
 
+## TODO
+- [ ] Update flake
+- [ ] Create user config
+- [ ] Create host config
+- [ ] Fixup modules
+
+
 ## Directory Structure
 
 ```tree
@@ -19,9 +28,17 @@ This repository contains a modern NixOS installer built using Bubble Tea, a Go l
 
 ├── assets/
 ├── hosts/
-│   ├── darwin/
+│   ├── darwin
+│   │   ├── spadia/
+│   │   └── exMachina/
 │   ├── nixos/
+│   │   ├── nexus/
+│   │   ├── master-luminode/
+│   │   └── luminode-1/
 │   └── others/
+│       ├── wsl/
+│       ├── raspi/
+│       └── ubuntu/
 ├── modules/
 │   ├── apps/
 │   ├── hardware/
@@ -38,6 +55,9 @@ This repository contains a modern NixOS installer built using Bubble Tea, a Go l
 │   ├── main.go
 │   ├── config.go
 │   └── ui.go
+├── users/
+│   └── nightwatcher/
+│       └── settings.nix
 ├── flake.nix
 ├── sysConfigs.nix
 ├── setup.sh            # Setup Script
@@ -67,6 +87,14 @@ This repository contains a modern NixOS installer built using Bubble Tea, a Go l
    ```
 
 ## Configuration
+
+Each configuration is based on modules
+you can configure modules based on the folders available in the modules section
+modules may have multiple levels and some modules will not be compatible on certain hardware or with other modules (xorg, wayland, etc)
+1st level is general category - desktop
+2nd level is sub categories - wm, bars, notifiers - compatible tech within each folder
+3rd level - wm/hyprland wm/sway wm/gnome - etc
+
 
 The installer uses a `config.yaml` file to define global settings and profiles. Here’s a sample structure:
 
