@@ -48,7 +48,7 @@ in
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
-        settings = import ./hosts/nixos/${machineHostname}/settings.nix;
+        # settings = import ../hosts/nixos/${machineHostname}/settings.nix;
       };
       modules = [
         # ./machines/nixos/_common

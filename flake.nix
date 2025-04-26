@@ -22,6 +22,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager = {
       url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager/0b491b460f52e87e23eb17bbf59c6ae64b7664c1"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
@@ -29,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager-darwin = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     home-manager-unstable = {

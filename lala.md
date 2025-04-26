@@ -32,6 +32,7 @@ error:
 
 This is my current folder structure
 ```
+hosts/nixos/default.nix
 hosts/nixos/nixos/default.nix
 users/home.nix
 utils/systems.nix

@@ -1,5 +1,9 @@
-{ config, host, username, ... }:
+{ config, ... }:
 # TODO: add userSettings for dotfiles dir
+let
+  host = "nixos";
+  username = "nightwatcher";
+in
 {
   programs.zsh = {
     enable = true;
