@@ -13,29 +13,53 @@
     ];
   };
 
-  inputs = import ./utils/inputs.nix;
+  # inputs = import ./utils/inputs.nix;
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-darwin-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-darwin = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+  };
 
   outputs =
-    { ... }@inputs:
+    { nixpkgs, home-manager, ... }@inputs:
     let
       helpers = import ./utils/systems.nix inputs;
       inherit (helpers) mkMerge mkNixos mkDarwin;
       getHostDirs = path:
         let
-          isDir = name: inputs.nixpkgs.lib.filesystem.isDirectory (path + "/${name}");
+	  isDir = name: inputs.nixpkgs.lib.filesystem.pathIsDirectory (path + "/${name}");
           dirNames = inputs.nixpkgs.lib.attrNames (inputs.nixpkgs.lib.filterAttrs (name: _: isDir name) (builtins.readDir path));
         in
           dirNames;
-      nixosHosts = getHostDirs ./hosts/nixos;
+      # nixosHosts = getHostDirs ./hosts/nixos;
+      nixosHosts = [ "nixos" ];
       nixConfigs = builtins.map (hostname:
-        mkNixos hostname inputs.nixpkgs [
+        (mkNixos hostname inputs.nixpkgs [
           inputs.home-manager.nixosModules.home-manager
-        ]
+        ])
       ) nixosHosts;
 
       darwinHosts = builtins.filter (name: name != "default.nix") (getHostDirs ./hosts/darwin);
       darwinConfigs = builtins.map (hostname: 
-        mkDarwin hostname inputs.nixpkgs-darwin [] []
+        (mkDarwin hostname inputs.nixpkgs-darwin [] [])
       ) darwinHosts;
     in
     mkMerge (nixConfigs ++ darwinConfigs);

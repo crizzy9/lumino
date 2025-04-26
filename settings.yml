@@ -1,5 +1,7 @@
 title: "NixOS Configuration"
 version: "1.0.0"
+# SETUP a LIST of USERS AND HOSTS for different profiles
+# one maybe for a homelab, another for work laptop, another for a pi or home pc etc
 
 settings:
   default_profile: "nixos-home"
@@ -11,6 +13,12 @@ settings:
     XDG_CONFIG_HOME: "$HOME/.config"
 
 profiles:
+  homelab:
+    name: "Nexus"
+  work:
+  home:
+  wsl:
+
   nixos-home:
     name: "Home Desktop"
     description: "Full desktop environment with development tools"
