@@ -58,7 +58,6 @@
       nixConfigs = builtins.map (hostname:
         (mkNixos hostname inputs.nixpkgs [
           inputs.home-manager.nixosModules.home-manager
-          # inputs.nix-yazi-plugins.homeManagerModules.default
         ])
       ) nixosHosts;
 

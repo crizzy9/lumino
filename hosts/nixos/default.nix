@@ -7,13 +7,11 @@
   ...
 }:
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   system.stateVersion = "24.11";
-  # system.stateVersion = "24.05";
 
   nix.gc = {
     automatic = true;
@@ -38,14 +36,7 @@
   environment.systemPackages = with pkgs; [
     # nix
     nh
-
-    # apps
-    inkscape
-    gimp
-    mplayer
-    firefox
-    obsidian
-    spotify
+    nurl
 
     # essentials
     eza
@@ -63,9 +54,10 @@
     glow
     atuin
     zsh-fzf-tab
-    # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
+    # fonts
     nerd-fonts.jetbrains-mono
+    # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
     # tools
     git
@@ -87,7 +79,6 @@
     powertop
     btop
     trash-cli
-    nurl
     ffmpeg
 
     # utils

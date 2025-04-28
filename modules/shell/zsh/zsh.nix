@@ -55,8 +55,7 @@ in
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
-    initExtra = builtins.readFile ./widgets.zsh;
-    # initContent = builtins.readFile ./widgets.zsh;
+    initContent = builtins.readFile ./widgets.zsh;
 
   };
 

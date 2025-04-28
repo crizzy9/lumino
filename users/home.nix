@@ -9,14 +9,6 @@
   };
 
   imports = [
-    # ../../../modules/shell/zsh/zsh.nix
-    # ../../../modules/shell/neovim/neovim.nix
-    # ../../../modules/shell/tmux/tmux.nix
-    # ../../../modules/shell/yazi/yazi.nix
-    # ../../../modules/shell/kitty.nix
-    # ../../../modules/shell/atuin.nix
-    # ../../../modules/shell/starship.nix
-
     ../modules/shell/zsh/zsh.nix
     ../modules/shell/neovim/neovim.nix
     ../modules/shell/tmux/tmux.nix
@@ -31,9 +23,7 @@
   home = {
     username = "nightwatcher";
     homeDirectory = "/home/nightwatcher";
-    # stateVersion = "25.05";
     stateVersion = "24.11";
-    # stateVersion = "24.05";
   };
 
   programs.git = {
@@ -43,17 +33,7 @@
   };
 
   home.packages = with pkgs; [
-    # vim
-    # neovim
-    # tmux
-    # lazygit
-    # yazi
   ];
-
-
-  # fonts.packages = [
-  #   pkgs.nerd-fonts.jetbrains-mono
-  # ];
 
   xdg = {
     userDirs = {
@@ -62,13 +42,17 @@
     };
   };
 
+  # stylix.targets.neovim.enable = false;
+  # stylix.targets.rofi.enable = false;
+  # stylix.targets.waybar.enable = false;
+  # stylix.targets.hyprland.enable = false;
+
   home.file = {};
 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  # programs.zsh.enable = true;
   programs.home-manager.enable = true;
 
 }
