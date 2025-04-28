@@ -2,7 +2,7 @@
 # Vim Mode
 # ======== #
 # unbinds certain emacs mode keybinds like Ctrl+P and Ctrl+N
-bindkey -v
+# bindkey -v
 
 # =========================================== #
 # Find files using fd and open them in neovim
@@ -144,6 +144,32 @@ bindkey '^y' autosuggest-accept # binds Ctrl+y
 # TODO: pomodoro timer
 # TODO: fzf tab
 # zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+#
+# disable sort when completing `git checkout`
+# zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:complete:git-checkout:argument-rest' sort false
+# zstyle ':completion:complete:git-revert:argument-rest' sort false
+# no sort for all git commands
+# zstyle ':completion:*:git:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -a --icons=auto --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+# preview file content with bat when completing with fzf-tab
+# zstyle ':fzf-tab:complete:*' fzf-preview 'bat --color=always --style=header,grid --line-range :600 {}'
+
+# change continous trigger
+# zstyle ':fzf-tab:*' continous-trigger '/'
+
+# enable fzf tmux popup with fzf-tab
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:complete:cd*' popup-min-size 50 8
 
 # export secret keys
 source ~/.config/variables.env
