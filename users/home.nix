@@ -1,4 +1,8 @@
 { config, pkgs, ... }:
+let
+  # Change it to userSettings
+  inherit (import ./settings.nix) username gitUsername gitEmail;
+in
 {
   nixpkgs = {
     overlays = [ ];
@@ -21,15 +25,15 @@
   ];
 
   home = {
-    username = "nightwatcher";
-    homeDirectory = "/home/nightwatcher";
+    username = username;
+    homeDirectory = "/home/${username}";
     stateVersion = "24.11";
   };
 
   programs.git = {
     enable = true;
-    userName = "crizzy9";
-    userEmail = "shyampadia@live.com";
+    userName = gitUsername;
+    userEmail = gitEmail;
   };
 
   home.packages = with pkgs; [
@@ -51,6 +55,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    DOTFILES = "/home/${username}/lumino";
   };
 
   programs.home-manager.enable = true;

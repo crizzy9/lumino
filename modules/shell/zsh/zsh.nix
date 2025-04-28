@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 # TODO: add userSettings for dotfiles dir
 let
-  host = "nixos";
+  host = "scadrial";
   username = "nightwatcher";
 in
 {
@@ -10,6 +10,13 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
+    ];
 
     shellAliases = {
       ".." = "cd ..";
@@ -67,7 +74,6 @@ in
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
-
 
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;

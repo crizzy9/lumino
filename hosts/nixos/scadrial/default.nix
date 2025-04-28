@@ -1,4 +1,8 @@
 { config, pkgs, lib, ... }:
+let
+  # Change it to userSettings
+  inherit (import ./settings.nix) host;
+in
 {
   imports = [
     ../../../modules/hardware/kernel.nix
@@ -12,7 +16,7 @@
 
   time.timeZone = "America/Los_Angeles";
 
-  networking.hostName = "nixos";
+  networking.hostName = host;
   networking.networkmanager.enable = true;
 
   # Enable the X11 windowing system.

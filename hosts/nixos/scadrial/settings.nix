@@ -1,5 +1,5 @@
 {
-  host = "nexus";
+  host = "scadrial";
   users = ["nightwatcher"];
   videoDriver = "nvidia";
   apps = [
