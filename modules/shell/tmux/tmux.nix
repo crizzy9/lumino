@@ -29,7 +29,7 @@
       tmux-fzf
       fzf-tmux-url
       # catpuccin
-      # tokyo-night-tmux
+      tokyo-night-tmux
       resurrect
       # "joshmedeski/tmux-nerd-font-window-name"
     ];

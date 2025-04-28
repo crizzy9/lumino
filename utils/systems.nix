@@ -52,7 +52,7 @@ in
       };
       modules = [
         # ./machines/nixos/_common
-	inputs.home-manager.nixosModules.home-manager
+	# inputs.home-manager.nixosModules.home-manager
         ../hosts/nixos
         ../hosts/nixos/${machineHostname}
         # inputs.agenix.nixosModules.default

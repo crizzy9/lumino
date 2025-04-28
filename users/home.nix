@@ -20,7 +20,9 @@
     ../modules/shell/zsh/zsh.nix
     ../modules/shell/neovim/neovim.nix
     ../modules/shell/tmux/tmux.nix
-    ../modules/shell/yazi/yazi.nix
+    # NOT working
+    # ../modules/shell/yazi/yazi.nix
+    # ../modules/shell/yazi/yazi2.nix
     ../modules/shell/kitty.nix
     ../modules/shell/atuin.nix
     ../modules/shell/starship.nix
@@ -29,6 +31,7 @@
   home = {
     username = "nightwatcher";
     homeDirectory = "/home/nightwatcher";
+    # stateVersion = "25.05";
     stateVersion = "24.11";
     # stateVersion = "24.05";
   };
@@ -40,14 +43,27 @@
   };
 
   home.packages = with pkgs; [
-    vim
+    # vim
     # neovim
     # tmux
-    lazygit
+    # lazygit
     # yazi
   ];
 
-  # home.file = {};
+
+  # fonts.packages = [
+  #   pkgs.nerd-fonts.jetbrains-mono
+  # ];
+
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
+
+  home.file = {};
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };

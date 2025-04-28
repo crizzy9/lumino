@@ -42,6 +42,15 @@
       typescript-language-server
       pyright
       marksman
+      gcc
+      clang
+      go
+      (python312.withPackages (ps: with ps; [pip]))
+      libGL
+      nodejs
+      pnpm
+      rustup
+      cargo
     ];
     plugins = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
   };

@@ -22,7 +22,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager = {
       url = "github:nix-community/home-manager";
-      # url = "github:nix-community/home-manager/0b491b460f52e87e23eb17bbf59c6ae64b7664c1"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
@@ -37,6 +36,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    nix-yazi-plugins = {
+      url = "github:lordkekz/nix-yazi-plugins?ref=yazi-v0.2.5";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -46,15 +49,16 @@
       inherit (helpers) mkMerge mkNixos mkDarwin;
       getHostDirs = path:
         let
-	  isDir = name: inputs.nixpkgs.lib.filesystem.pathIsDirectory (path + "/${name}");
+          isDir = name: inputs.nixpkgs.lib.filesystem.pathIsDirectory (path + "/${name}");
           dirNames = inputs.nixpkgs.lib.attrNames (inputs.nixpkgs.lib.filterAttrs (name: _: isDir name) (builtins.readDir path));
         in
           dirNames;
-      # nixosHosts = getHostDirs ./hosts/nixos;
-      nixosHosts = [ "nixos" ];
+      nixosHosts = getHostDirs ./hosts/nixos;
+      # nixosHosts = [ "nixos" ];
       nixConfigs = builtins.map (hostname:
         (mkNixos hostname inputs.nixpkgs [
           inputs.home-manager.nixosModules.home-manager
+          # inputs.nix-yazi-plugins.homeManagerModules.default
         ])
       ) nixosHosts;
 

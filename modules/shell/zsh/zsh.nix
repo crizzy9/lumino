@@ -23,8 +23,8 @@ in
       lg = "lazygit";
       v = "nvim";
       sv = "sudo nvim";
-      sync = "nh os switch --hostname ${host} /home/${username}/.dotfiles"; # rebuild = "sudo nixos-rebuild switch --flake .";
-      update = "nh os switch --hostname ${host} --update /home/${username}/.dotfiles"; # update = "nix flake update";
+      sync = "nh os switch --hostname ${host} /home/${username}/lumino"; # rebuild = "sudo nixos-rebuild switch --flake .";
+      update = "nh os switch --hostname ${host} --update /home/${username}/lumino"; # update = "nix flake update";
       hs = "home-manager switch --flake .";
       pfg = "nurl $(eval pbpaste) | pbcopy"; # function for prefetch url
       y = "yazi";
@@ -56,6 +56,7 @@ in
     history.path = "${config.xdg.dataHome}/zsh/history";
 
     initExtra = builtins.readFile ./widgets.zsh;
+    # initContent = builtins.readFile ./widgets.zsh;
 
   };
 

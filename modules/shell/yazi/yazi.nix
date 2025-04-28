@@ -4,7 +4,7 @@ let
     owner = "yazi-rs";
     repo = "plugins";
     rev = "main";
-    hash = "sha256-RYa7wbFGZ9citYYdF9FYJwzUGBmIUvNBdORpBPb6ZnQ=";
+    hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
   };
 in
 {
@@ -21,25 +21,25 @@ in
         owner = "Reledia";
         repo = "glow.yazi";
         rev = "main";
-        hash = "sha256-fKJ5ld5xc6HsM/h5j73GABB5i3nmcwWCs+QSdDPA9cU=";
+        hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
       };
       eza-preview = pkgs.fetchFromGitHub {
         owner = "sharklasers996";
         repo = "eza-preview.yazi";
-        rev = "7ca4c2558e17bef98cacf568f10ec065a1e5fb9b";
-        hash = "sha256-ncOOCj53wXPZvaPSoJ5LjaWSzw1omHadKDrXdIb7G5U=";
+        rev = "main";
+        hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
       };
-      lazygit = pkgs.fetchFromGitHub {
-        owner = "Lil-Dank";
-        repo = "lazygit.yazi";
-        rev = "c82794fb410cca36b23b939d32126a6a9705f94d";
-        hash = "sha256-m2zITkjGrUjaPnzHnnlwA6d4ODIpvlBfIO0RZCBfL0E=";
-      };
+      # lazygit = pkgs.fetchFromGitHub {
+      #   owner = "Lil-Dank";
+      #   repo = "lazygit.yazi";
+      #   rev = "c82794fb410cca36b23b939d32126a6a9705f94d";
+      #   hash = "sha256-m2zITkjGrUjaPnzHnnlwA6d4ODIpvlBfIO0RZCBfL0E=";
+      # };
       # starship = pkgs.fetchFromGitHub {
       #   owner = "Rolv-Apneseth";
       #   repo = "starship.yazi";
-      #   rev = "77a65f5a367f833ad5e6687261494044006de9c3";
-      #   hash = "sha256-sAB0958lLNqqwkpucRsUqLHFV/PJYoJL2lHFtfHDZF8=";
+      #   rev = "main";
+      #   hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
       # };
       # rsync = pkgs.fetchFromGitHub {
       #   owner = "GianniBYoung";
