@@ -13,15 +13,20 @@ in
   };
 
   imports = [
+    # shell
     ../modules/shell/zsh/zsh.nix
     ../modules/shell/neovim/neovim.nix
     ../modules/shell/tmux/tmux.nix
-    # NOT working
-    # ../modules/shell/yazi/yazi.nix
-    # ../modules/shell/yazi/yazi2.nix
     ../modules/shell/kitty.nix
     ../modules/shell/atuin.nix
     ../modules/shell/starship.nix
+    # NOT working
+    # ../modules/shell/yazi/yazi.nix
+    # ../modules/shell/yazi/yazi2.nix
+
+    # styles
+    ../modules/styles/stylix.nix
+    ../modules/styles/fonts.nix
   ];
 
   home = {
@@ -46,7 +51,8 @@ in
     };
   };
 
-  # stylix.targets.neovim.enable = false;
+  stylix.targets.neovim.enable = false;
+  stylix.targets.starship.enable = false;
   # stylix.targets.rofi.enable = false;
   # stylix.targets.waybar.enable = false;
   # stylix.targets.hyprland.enable = false;

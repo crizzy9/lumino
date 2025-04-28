@@ -1,7 +1,7 @@
 { pkgs, ... }:
-let
-  themePath = "../../themes/tokyo-night-dark.yaml";
-in
+# let
+#   themePath = "../../themes/tokyo-night-dark.yaml";
+# in
 {
   # move to home manager
   stylix = {
@@ -16,26 +16,78 @@ in
     cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {
-      monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-        name = "JetBrainsMono Nerd Font Mono";
-      };
+      # monospace = {
+      #   package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+      #   name = "JetBrainsMono Nerd Font Mono";
+      # };
       sizes = {
         applications = 12;
         terminal = 15;
         desktop = 11;
         popups = 12;
       };
+
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+
     };
   };
 
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts-emoji
-      noto-fonts-cjk-sans
-      font-awesome
-      symbola
-      material-icons
-    ];
-  };
+  # fonts = {
+  #
+  #   serif = {
+  #     package = pkgs.dejavu_fonts;
+  #     name = "DejaVu Serif";
+  #   };
+  #
+  #   sansSerif = {
+  #     package = pkgs.dejavu_fonts;
+  #     name = "DejaVu Sans";
+  #   };
+  #
+  #   monospace = {
+  #     package = pkgs.dejavu_fonts;
+  #     name = "DejaVu Sans Mono";
+  #   };
+  #
+  #   noto-fonts-emoji = {
+  #     package = pkgs.noto-fonts-emoji;
+  #     name = "Noto Color Emoji";
+  #   };
+  #
+  #   symbola = {
+  #     package = pkgs.symbola;
+  #     name = "Symbola";
+  #   };
+  #
+  #   # material-icons = {
+  #   #   package = pkgs.material-icons;
+  #   #   name = "Material Icons";
+  #   # };
+  #
+  #   # packages = with pkgs; [
+  #   #   noto-fonts-emoji
+  #   #   noto-fonts-cjk-sans
+  #   #   font-awesome
+  #   #   symbola
+  #   #   material-icons
+  #   # ];
+  # };
 }

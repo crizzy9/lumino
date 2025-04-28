@@ -106,6 +106,7 @@
       Artix = "󰣇";
       CentOS = "";
       Debian = "󰣚";
+      NixOS = " ";
       Redhat = "󱄛";
       RedHatEnterprise = "󱄛";
     };
@@ -127,6 +128,7 @@
     directory.substitutions = {
       "~" = " ~";
       ".dotfiles" = " .dotfiles";
+      "lumino" = " lumino";
       "dev" = "󰲋 dev";
       "Documents" = "󰈙 Documents";
       "Downloads" = " Downloads";
@@ -135,7 +137,7 @@
     };
 
     git_branch = {
-      symbol = "";
+      symbol = " ";
       style = "bg:maroon";
       format = "[[ $symbol $branch ](fg:base bg:green)]($style)";
     };
@@ -209,7 +211,7 @@
       disabled = false;
       time_format = "%R";
       style = "bg:peach";
-      format = "[[  $time ](fg:mantle bg:purple)]($style)";
+      format = "[[   $time ](fg:mantle bg:purple)]($style)";
     };
 
     line_break.disabled = false;

@@ -36,6 +36,16 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    stylix.url = "github:danth/stylix";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    };
     nix-yazi-plugins = {
       url = "github:lordkekz/nix-yazi-plugins?ref=yazi-v0.2.5";
       inputs.nixpkgs.follows = "nixpkgs";

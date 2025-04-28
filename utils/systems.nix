@@ -11,6 +11,7 @@ let
     home-manager.users.nightwatcher.imports = [
       # inputs.agenix.homeManagerModules.default
       # inputs.nix-index-database.hmModules.nix-index
+      inputs.stylix.homeManagerModules.stylix
       ../users/home.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";

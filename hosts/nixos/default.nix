@@ -55,10 +55,6 @@
     atuin
     zsh-fzf-tab
 
-    # fonts
-    nerd-fonts.jetbrains-mono
-    # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-
     # tools
     git
     tree
