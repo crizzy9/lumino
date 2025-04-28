@@ -5,12 +5,16 @@ let
 in
 {
   imports = [
+    # hardware
     ../../../modules/hardware/kernel.nix
     ../../../modules/hardware/bluetooth.nix
     ../../../modules/hardware/audio.nix
     ../../../modules/hardware/usb.nix
+    ../../../modules/hardware/nvidia.nix
+    # core
     ../../../modules/core/boot.nix
     ../../../modules/core/i18n.nix
+    # user config
     ../../../users/nightwatcher.nix
   ];
 
